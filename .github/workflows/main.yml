@@ -26,7 +26,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             ls
-            cd /orvba
+            cd orvba
             git pull origin main
             npm install
             sudo npm run start
