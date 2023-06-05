@@ -2,10 +2,10 @@
   "name": "orvba-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "index.js",
   "scripts": {
     "build": "npx tsc",
-    "start": "nodemon /src/index.ts"
+    "start": "nodemon --exec ts-node index.ts"
   },
   "keywords": [],
   "author": "",
