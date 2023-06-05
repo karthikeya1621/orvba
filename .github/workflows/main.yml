@@ -29,4 +29,4 @@ jobs:
             cd orvba
             git pull origin main
             npm install
-            sudo pm2 npm run start
+            sudo pm2 start npm -- start
