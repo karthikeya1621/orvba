@@ -25,6 +25,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            sudo pm2 stop default
             sudo fuser -k 80/tcp
             cd orvba
             git pull origin main
