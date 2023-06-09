@@ -8,7 +8,7 @@ import { initializeApp } from 'firebase/app';
 export const app = express();
 app.use(cors({ origin: '*' }));
 app.use(express.json());
-const port = 3000;
+const port = 80;
 export var socket: Socket;
 const server = http.createServer(app);
 const io = new Server(server);
