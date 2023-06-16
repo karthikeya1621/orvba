@@ -28,6 +28,7 @@ jobs:
             sudo pm2 stop default
             sudo fuser -k 80/tcp
             cd orvba
+            git stash
             git pull origin main
             npm install
             sudo pm2 start npm -- start
