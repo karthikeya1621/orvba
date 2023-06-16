@@ -13,23 +13,51 @@ export interface Order extends Location {
     approvalStatus: OrderApprovalStatus;
     status: OrderStatus;
     id: string;
-    created_date: Date;
-    approved_date?: Date;
-    started_date?: Date;
-    declined_date?: Date;
-    abandoned_date?: Date;
-    ended_date?: Date;
+    createdDate: Date;
+    approvedDate?: Date;
+    startedDate?: Date;
+    declinedDate?: Date;
+    abandonedDate?: Date;
+    endedDate?: Date;
     mechanic?: Partial<Mechanic>;
+    otp?: number;
+    vehicleDetails?: VehicleRepairDetails
 }
 
 export interface User {
+    id: string;
     firstname?: string;
     lastname?: string;
     email?: string;
-    mobile?: string;
+    phone?: string;
+    fcm?: string;
 }
+
+export type UserWithToken = User & { token: string };
 
 export interface Location {
     longitude?: number;
     latitude?: number;
 }
+
+export type VehicleType = "2-wheeler" | "3-wheeler" | "4-wheeler";
+
+export type VehicleRepairDetails = {
+    vehicleType?: VehicleType;
+    manufacturer?: string;
+    model?: string;
+    year?: number;
+    repairDescription?: string;
+    repairCost?: number;
+    repairDate?: Date;
+    spares: SparePart[]
+};
+
+export type SparePart = {
+    partName: string;
+    partNumber: string;
+    manufacturer: string;
+    price: number;
+    quantity: number;
+    vehicleType: VehicleType;
+};

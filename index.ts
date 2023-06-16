@@ -4,6 +4,8 @@ import http from 'http';
 import { Server, Socket } from 'socket.io';
 import { orders } from './orders';
 import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+import * as admin from 'firebase-admin';
 
 export const app = express();
 app.use(cors({ origin: '*' }));
@@ -23,6 +25,11 @@ const firebaseConfig = {
     measurementId: "G-JW4NLR6KDN"
 };
 const firebaseApp = initializeApp(firebaseConfig);
+export const db = getFirestore(firebaseApp);
+
+export const adminApp = admin.initializeApp({
+    credential: admin.credential.cert('./fb-private.json')
+});
 
 app.get('/', (req, res) => {
     res.send("Hello World");
